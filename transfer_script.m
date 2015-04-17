@@ -18,6 +18,7 @@ for t=linspace(0,t_max - t_step,t_max/t_step)
     end
     if (mod(t/t_step,5)==0) 
         plot(x,f)
+        ylim([-150 150])
         drawnow
     end
 end
