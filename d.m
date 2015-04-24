@@ -19,5 +19,11 @@ if l > max_freq
 else
     F = fft(f);
 end
-df = ifft(F*D,'symmetric');
+
+if imag(a)==0
+    df = ifft(F*D,'symmetric');
+else
+    df = ifft(F*D);
+end
+
 end
