@@ -1,6 +1,6 @@
 clf;
 domain = 16*pi;
-N = 256;
+N = 512;
 x = domain*linspace(0,1-1/N,N)-domain/2;
 f = exp(-(x).^2);
 % f = 1./(x.^4+1);
@@ -8,14 +8,14 @@ f = exp(-(x).^2);
 % f = sin(128/32*x);
 f = f-mean(f);
 
-t_max = 100;
-t_step = 0.0005;
+t_max = .1;
+t_step = 0.00005;
 count = 0; 
 df_old = zeros(1,length(f));
 df_old2 = zeros(1,length(f));
 for t=linspace(0,t_max - t_step,t_max/t_step)
     % compute derivative
-    df = d(f,3,domain,128);
+    df = d(f,3,domain,256);
     
     % move each point
     if count == 0
@@ -36,7 +36,7 @@ for t=linspace(0,t_max - t_step,t_max/t_step)
     if (mod(count,100)==0)
         t
         plot(x,f)
-        ylim([-150 150])
+        ylim([-1.50 1.50])
 %         axis([ -10, 30, -1.5, 1.5])
         drawnow
     end
