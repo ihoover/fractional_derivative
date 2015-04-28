@@ -2,13 +2,13 @@ clf;
 domain = 16*pi;
 N = 256;
 x = domain*linspace(0,1-1/N,N)-domain/2;
-f = exp(-x.^2);
+f = exp(-(x/4).^8);
 f = f-mean(f);
 
-a=1.9;
+a=1.2;
 
-t_max = 5;
-t_step = 0.0005;
+t_max = 1000;
+t_step = 0.005;
 count = 0;
 
 df1_old = zeros(1,length(f));
@@ -23,9 +23,9 @@ f3 = f;
 
 for t=linspace(0,t_max - t_step,t_max/t_step)
     % compute derivative
-    df1 = d(f1,1,domain,256);
-    df2 = d(f2,a,domain,256);
-    df3 = d(f3,2,domain,256);
+    df1 = d(f1,1,domain,128);
+    df2 = d(f2,a,domain,128);
+    df3 = d(f3,2,domain,128);
     % move each point
     if count == 0
         for i=1:N
@@ -56,7 +56,7 @@ for t=linspace(0,t_max - t_step,t_max/t_step)
         plot(x,f3)
         legend({strcat('\alpha= ',num2str(a)),'Transport','Diffusion'},'FontSize',16)
         ylim([-.10 1.50])
-%         axis([ -10, 30, -1.5, 1.5])
+        axis([ -8*pi, 8*pi, -.5, 1.5])
         drawnow
     end
     df1_old2 = df1_old;

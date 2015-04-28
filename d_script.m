@@ -6,9 +6,9 @@ f = exp(-x.^2);
 % f = exp(-1./(1-(2*x/domain).^2));
 % f = sin(x);
 f = f-mean(f);
-max (d(f,1,domain) - (-2*x.*exp(-x.^2)))
-max (d(f,2,domain) - ((4*x.^2-2).*exp(-x.^2)))
-max (d(f,3,domain) - ((-8*x.^3+12*x).*exp(-x.^2)))
+max (d(f,1,domain) - (-2*x.*exp(-x.^2)));
+max (d(f,2,domain) - ((4*x.^2-2).*exp(-x.^2)));
+max (d(f,3,domain) - ((-8*x.^3+12*x).*exp(-x.^2)));
 for a=linspace(0,2*pi,1000);
     clf
     plot (x,real(d(f,exp(1i*a),domain)))

@@ -42,7 +42,7 @@ for t=linspace(0,t_max - t_step,t_max/t_step)
         end
     end
     if (mod(count,50)==0)
-        t
+        t;
         clf
         plot(x,f)
         hold on

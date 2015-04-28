@@ -1,7 +1,7 @@
 syms x
 f = (1/2)*x^2; %function
 start_d=-2; %start derivative
-end_d=3; %end derivative
+end_d=2; %end derivative
 s = 100; %number of steps
 o=5; %taylor series order
 
