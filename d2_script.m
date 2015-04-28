@@ -8,7 +8,7 @@ o=5; %taylor series order
 clf;
 for a=linspace(start_d,end_d,s+1)
     ezplot(d2(f,a,o))
-    text('Position',[2.5,2.5],'HorizontalAlignment','center','String',strcat('$\frac{d^{',num2str(a),'}}{dx^{',num2str(a),'}}[',latex(f),']$'),'interpreter','latex','fontsize',20)
+    text('Position',[4,2.5],'HorizontalAlignment','center','String',strcat('$\frac{d^{',num2str(a),'}}{dx^{',num2str(a),'}}[',latex(f),']$'),'interpreter','latex','fontsize',20)
     axis([0 5 -1 3])
     drawnow
 end
